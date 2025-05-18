@@ -1,7 +1,8 @@
 package com.example;
 
 import com.example.config.AppConfig;
-import com.example.ui.MainFrame;
+import com.example.main.controller.HomeController;
+// import com.example.ui.MainFrame;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.util.SystemInfo;
 import org.slf4j.Logger;
@@ -15,7 +16,7 @@ public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        // macOS  (see https://www.formdev.com/flatlaf/macos/)
+        // macOS (see https://www.formdev.com/flatlaf/macos/)
         if (SystemInfo.isMacOS) {
             // enable screen menu bar
             // (moves menu bar from JFrame window to top of screen)
@@ -27,9 +28,9 @@ public class App {
 
             // appearance of window title bars
             // possible values:
-            //   - "system": use current macOS appearance (light or dark)
-            //   - "NSAppearanceNameAqua": use light appearance
-            //   - "NSAppearanceNameDarkAqua": use dark appearance
+            // - "system": use current macOS appearance (light or dark)
+            // - "NSAppearanceNameAqua": use light appearance
+            // - "NSAppearanceNameDarkAqua": use dark appearance
             // (needs to be set on main thread; setting it on AWT thread does not work)
             System.setProperty("apple.awt.application.appearance", "system");
         } else if (SystemInfo.isLinux) {
@@ -66,6 +67,6 @@ public class App {
         UIManager.put("ScrollBar.thumbArc", rounding);
         UIManager.put("ScrollBar.thumbInsets", new Insets(insets, insets, insets, insets));
 
-        new MainFrame();
+        new HomeController();
     }
 }
